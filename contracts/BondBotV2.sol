@@ -166,6 +166,10 @@ contract BondBot {
         router = IUniswapV2Router02( _router );
     }
 
+    function autoClaim(address bondAddress) public {
+        _claimPendingRewards(bondAddress);
+    }
+
     function _addLiquidity(address tokenA, address tokenB, uint256 amountADesired, uint256 amountBDesired, IUniswapV2Router02 mainRouter) internal {
             _approveToken(tokenA, address(mainRouter), amountADesired);
             _approveToken(tokenB, address(mainRouter), amountBDesired);
